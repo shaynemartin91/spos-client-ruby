@@ -6,7 +6,7 @@ require_relative './spos-client/resource'
 require_relative './spos-client/time-helpers'
 
 class SPOSClient
-    attr_reader :Adcodes, :Addresses, :Affiliates, :AttributeGroups, :Attributes, :BlogCategories, :BlogPosts, :Blogs, :CartItems, :Carts, :Categories, :CouponCodes, :CreditCards, :CustomFieldValues, :CustomFields, :CustomShippingMethods, :CustomerPaymentMethods, :CustomerTypes, :Customers, :DiscountMethods, :DiscountRules, :Drips, :EmailTemplates, :GiftCertificateTransactions, :GiftCertificates, :Inventory, :Links, :MailingLists, :Manufacturers, :OrderAddresses, :OrderItems, :OrderPayments, :OrderShipments, :OrderStatuses, :Orders, :Pages, :PaymentMethods, :ProductLists, :ProductPictures, :ProductReviews, :ProductStatuses, :ProductVariants, :Products, :Profiles, :Quotes, :Regions, :Sessions, :ShippingProviders, :ShippingRateAdjustments, :Stores, :Subscriptions, :TaxRates, :UrlRedirects, :Users, :VariantGroups, :VariantInventory, :Warehouses, :Wishlists, 
+    attr_reader :Adcodes, :Addresses, :Affiliates, :AttributeGroups, :Attributes, :BlogCategories, :BlogPosts, :Blogs, :CartItems, :Carts, :Categories, :CouponCodes, :CreditCards, :CustomFieldValues, :CustomFields, :CustomShippingMethods, :CustomerPaymentMethods, :CustomerTypes, :Customers, :DiscountMethods, :DiscountRules, :Drips, :EmailTemplates, :GiftCertificateTransactions, :GiftCertificates, :Inventory, :Links, :MailingLists, :Manufacturers, :OrderAddresses, :OrderItems, :OrderPayments, :OrderShipments, :OrderStatuses, :Orders, :Pages, :PaymentMethods, :ProductLists, :ProductPictures, :ProductReviews, :ProductStatuses, :ProductVariants, :Products, :Profiles, :Quotes, :Regions, :Sessions, :ShippingProviders, :ShippingRateAdjustments, :Stores, :Subscriptions, :TaxRates, :UrlRedirects, :Users, :VariantGroups, :VariantInventory, :Warehouses, :Webhooks, :Wishlists 
 
     def initialize(domain, token)
         @domain = domain
@@ -69,6 +69,7 @@ class SPOSClient
         @VariantGroups = Resource.new "variant_groups", self
         @VariantInventory = Resource.new "variant_inventory", self
         @Warehouses = Resource.new "warehouses", self
+        @Webhooks = Resource.new "webhooks", self
         @Wishlists = Resource.new "wishlists", self
     end
     
