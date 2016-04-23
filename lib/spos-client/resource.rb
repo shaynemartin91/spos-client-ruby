@@ -6,12 +6,19 @@ class Resource
     
     def get(id = nil)
         if(id != nil)
-            path = "#{@endpoint}/#{id}"
+            getById(id)
         else
-            path = @endpoint
+            getMany
         end
-        
-        @client.request(path)
+    end
+    
+    def getById(id, filled = false)
+        fill = filled ? "/filled" : ""
+        @client.request("#{@endpoint}/#{id}#{fill}")
+    end
+    
+    def getMany()
+        @client.request(@endpoint)
     end
     
     def save(body)
