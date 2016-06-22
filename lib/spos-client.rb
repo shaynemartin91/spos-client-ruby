@@ -97,10 +97,14 @@ class SPOSClient
         
         body = JSON.parse(JSON.parse(response.body).to_json, object_class: OpenStruct)
     
-        if body.status_code === 429
-            retrytime = 
+        if body.status_code === 429 
             time = Time.now.time_until(Time.parse(response['Retry-After']))
-            sleep (time/1000)
+            sleeptime = (time/1000) 
+            
+            if(sleeptime > 0)
+                sleep sleeptime
+            end
+            
             body = request(path)
         end
         
