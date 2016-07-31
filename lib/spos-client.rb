@@ -73,9 +73,26 @@ class SPOSClient
         @Wishlists = Resource.new "wishlists", self
     end
     
-    def request(path, body = nil)
-        uri = URI.parse("https://#{@domain}/api/v1/#{path}")
-        
+    def parse_query(opts)
+        if(opts.nil?)
+            return ""
+        end
+
+        queries = []
+
+        opts.each do |key, value|
+            unless(value.nil?)
+                queries << "#{key}=#{value}"
+            end
+        end
+
+        "?#{queries.join('&')}"
+    end
+
+    def request(path, body = nil, opts = nil)
+        query = self.parse_query(opts)
+        uri = URI.parse("https://#{@domain}/api/v1/#{path}#{query}")
+        puts uri.request_uri
         http = Net::HTTP.new(uri.host, uri.port)
         http.use_ssl = true
         

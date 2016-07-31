@@ -13,12 +13,16 @@ gem install spos-client
 ```
 require 'spos-client'
 
-order = client.Orders.get(103673)
+order = client.Orders.getById(103673, true) # passing true gets the resource with all sub-resouce collections pre-filled
 order.adcode = 'Change the adcode!'
 
 order = client.Orders.save(order)
 
 puts order
+
+results = client.Products.get(:base_price => "gt:5")
+puts results.total_count # => 1
+puts results.products.to_json # => Array of json objects
 ```
 
 Resources on the `client` instance are taken from [this list](https://github.com/SparkPay/rest-api/tree/master/resources). Currently, the only methods supported on resources are `get`, `get(id)` and `save(body)`. Filters and fields are to come. The body passed to `save` can either be an OpenStruct such as returned from the api, or a hash.

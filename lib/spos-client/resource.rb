@@ -4,11 +4,11 @@ class Resource
         @client = client
     end 
     
-    def get(id = nil)
-        if(id != nil)
-            getById(id)
+    def get(opts = nil)
+        if(!opts.nil? && opts.has_key?("id"))
+            getById(opts[:id])
         else
-            getMany
+            getMany(opts)
         end
     end
     
@@ -17,8 +17,8 @@ class Resource
         @client.request("#{@endpoint}/#{id}#{fill}")
     end
     
-    def getMany()
-        @client.request(@endpoint)
+    def getMany(opts)
+        @client.request(@endpoint, nil, opts)
     end
     
     def save(body)
