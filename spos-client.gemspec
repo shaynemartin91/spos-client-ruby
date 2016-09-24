@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.description = "Simple Ruby bindings for your Spark Pay Online Store REST API"
   s.authors     = ["Shayne Martin"]
   s.email       = "shayne.martin@capitalone.com"
-  s.files       = ["lib/spos-client.rb", "lib/spos-client/resource.rb", "lib/spos-client/time-helpers.rb", "lib/spos-client/Order.rb", "lib/spos-client/EmailTemplate"]
+  s.files       = ["lib/spos-client.rb", "lib/spos-client/resource.rb", "lib/spos-client/time-helpers.rb", "lib/spos-client/Order.rb", "lib/spos-client/EmailTemplate.rb"]
   s.homepage    =
     'http://rubygems.org/gems/spos-client'
   s.license       = 'MIT'
