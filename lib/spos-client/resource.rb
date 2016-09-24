@@ -35,4 +35,11 @@ class Resource
         @client.request(path, body)
     end
     
+    def custom(path, body = nil, opts = nil, method = nil)
+        if(body.is_a?(OpenStruct))
+            body = body.to_h
+        end
+
+        @client.request(path, body, opts, method)
+    end
 end

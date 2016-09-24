@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'spos-client'
-  s.version     = '0.0.5'
+  s.version     = '0.0.6'
   s.date        = '2016-04-14'
   s.summary     = "Simple Ruby bindings for your Spark Pay Online Store REST API"
   s.description = "Simple Ruby bindings for your Spark Pay Online Store REST API"

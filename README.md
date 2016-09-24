@@ -8,7 +8,7 @@ This is a ruby gem for connecting to your SPOS account and using the API.
 gem install spos-client
 ```
 
-##Usage
+## Usage
 
 ```
 require 'spos-client'
