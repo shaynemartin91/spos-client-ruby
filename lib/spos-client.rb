@@ -92,6 +92,7 @@ class SPOSClient
     end
 
     def request(path, body = nil, opts = nil, method = nil)
+        original_body = body
         query = self.parse_query(opts)
         uri = URI.parse("https://#{@domain}/api/v1/#{path}#{query}")
         http = Net::HTTP.new(uri.host, uri.port)
@@ -134,7 +135,7 @@ class SPOSClient
                 sleep sleeptime
             end
             
-            body = request(path, body, opts, method)
+            body = request(path, original_body, opts, method)
         end
         
         body
